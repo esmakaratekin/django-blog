@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <article class="single-post">
+                        <header class="post-header">
+                            <h1 class="post-title">
+                                 {{ makale.baslik }}
+                            </h1>
+                            <div class="post-meta flex">
+                                <div class="author-list flex">
+                                    <a href="#" class="author-name">
+                                        {{ makale.yazar.get_full_name }}
+                                    </a>&nbsp;
+                                </div>
+                                <time class="post-date" datetime="2020-06-10">{{ makale.yayinlanma_tarihi }}</time>
+                            </div>
+                        </header>
+                        <div class="featured-image-wrap">
+                            <img class="featured-image" loading="lazy"
+                                src="{{ makale.resim.url }}" alt="makale resmi">
+                        </div>
+                        <div class="post-content">
+                            {{ makale.icerik }}
+                        </div>
+                        <div class="post-footer">
+                            <div class="tag-wrap">
+                                <a href="#">{{ makale.kategori.isim }}</a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
